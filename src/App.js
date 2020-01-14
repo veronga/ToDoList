@@ -32,6 +32,7 @@ function App() {
               name: "Фильмы и сериалы"
             }
           ]}
+          isRemovable
         />
       </div>
       <div className="todo__tasks"></div>

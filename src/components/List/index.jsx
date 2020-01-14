@@ -2,11 +2,11 @@ import React from "react";
 
 import "./style.scss";
 
-const List = ({ items }) => {
+const List = ({ items, isRemovable }) => {
   return (
     <ul className="list">
-      {items.map(item => (
-        <li class={item.active ? "active" : ""}>
+      {items.map((item, index) => (
+        <li key={index} className={item.active ? "active" : ""}>
           <i>
             {item.icon ? (
               item.icon
