@@ -19,7 +19,7 @@
     transition: background-color 0.15s ease-in-out;
 
     &:hover #{$self}__remove-icon {
-      opacity: 5;
+      opacity: 1;
     }
 
     #{$self}__remove-icon {
@@ -27,7 +27,7 @@
       transition: opacity 0.15s ease-in-out;
 
       &:hover {
-        opacity: 1;
+        opacity: 0.6;
       }
     }
 

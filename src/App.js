@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import List from "./components/List";
 import AddList from "./components/AddList";
+import Tasks from "./components/Tasks";
 
 import listSvg from "./image/list.png";
 import DB from "./image/DB.json";
@@ -33,7 +34,9 @@ function App() {
         <List items={lists} isRemovable onRemove={item => {}} />
         <AddList onAdd={onAddList} colors={DB.colors} />
       </div>
-      <div className="todo__tasks"></div>
+      <div className="todo__tasks">
+        <Tasks />
+      </div>
     </div>
   );
 }
