@@ -1,8 +1,10 @@
 import React from "react";
 
-import List from "./components/List/index";
+import List from "./components/List";
+import AddList from "./components/AddList";
 
 import listSvg from "./image/list.png";
+import DB from "./image/DB.json";
 
 function App() {
   return (
@@ -34,6 +36,7 @@ function App() {
           ]}
           isRemovable
         />
+        <AddList colors={DB.colors} />
       </div>
       <div className="todo__tasks"></div>
     </div>
