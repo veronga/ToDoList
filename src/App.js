@@ -50,9 +50,7 @@ function App() {
         )}
         <AddList onAdd={onAddList} colors={colors} />
       </div>
-      <div className="todo__tasks">
-        <Tasks />
-      </div>
+      <div className="todo__tasks">{lists && <Tasks list={lists[1]} />}</div>
     </div>
   );
 }
