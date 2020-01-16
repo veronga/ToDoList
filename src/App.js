@@ -8,6 +8,7 @@ import listSvg from "./image/list.png";
 function App() {
   const [lists, setLists] = useState(null);
   const [colors, setColors] = useState(null);
+  const [activeItem, setActiveItem] = useState(null);
 
   useEffect(() => {
     axios
@@ -44,13 +45,19 @@ function App() {
               setLists(newLists);
             }}
             isRemovable
+            onClickItem={item => {
+              setActiveItem(item);
+            }}
+            activeItem={activeItem}
           />
         ) : (
           "Загрузка..."
         )}
         <AddList onAdd={onAddList} colors={colors} />
       </div>
-      <div className="todo__tasks">{lists && <Tasks list={lists[1]} />}</div>
+      <div className="todo__tasks">
+        {lists && activeItem && <Tasks list={activeItem} />}
+      </div>
     </div>
   );
 }
