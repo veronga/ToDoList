@@ -45,11 +45,41 @@
 
   img {
     cursor: pointer;
-    margin-left: 15px;
-    opacity: 0;
 
     &:hover {
       opacity: 1;
+    }
+  }
+
+  &__form {
+    &-blok {
+      .button {
+        margin-right: 10px;
+        margin-top: 15px;
+      }
+    }
+
+    &-new {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+      cursor: pointer;
+      opacity: 0.4;
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      img {
+        width: 16px;
+        height: 16px;
+        margin-left: 4px;
+      }
+
+      span {
+        font-size: 16px;
+        margin-left: 19px;
+      }
     }
   }
 }

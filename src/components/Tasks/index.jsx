@@ -1,11 +1,13 @@
 import React from "react";
 import axios from "axios";
 
+import AddTaskForm from "./AddTaskForm";
+
 import "./style.scss";
 
 import penSvg from "../../image/pen.png";
 
-const Tasks = ({ list, onEditTitle }) => {
+const Tasks = ({ list, onEditTitle, onAddTask }) => {
   const editTitle = () => {
     const newTitle = window.prompt("Название списка", list.name);
     if (newTitle) {
@@ -26,7 +28,6 @@ const Tasks = ({ list, onEditTitle }) => {
         {list.name}
         <img src={penSvg} alt="pen icon" onClick={editTitle} />
       </h2>
-
       <div className="tasks__items">
         {!list.tasks.length && <h2>Задачи отсутствуют</h2>}
         {list.tasks.map(task => (
@@ -54,6 +55,7 @@ const Tasks = ({ list, onEditTitle }) => {
             <input readOnly value={task.text} />
           </div>
         ))}
+        <AddTaskForm list={list} onAddTask={onAddTask} />
       </div>
     </div>
   );
