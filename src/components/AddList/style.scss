@@ -16,22 +16,27 @@
       margin-top: 12px;
     }
 
-    .close-btn {
+    &-close-btn {
       position: absolute;
       right: -8px;
       top: -8px;
       cursor: pointer;
     }
 
-    .badge {
-      width: 16px;
-      height: 16px;
+    &-colors {
+      display: flex;
+      justify-content: space-between;
       margin-top: 12px;
-      cursor: pointer;
-      border: 2px solid transparent;
 
-      &.active {
-        border: 2px solid #525252;
+      .badge {
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        border: 2px solid transparent;
+
+        &.active {
+          border: 2px solid #525252;
+        }
       }
     }
   }

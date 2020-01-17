@@ -2,11 +2,11 @@ import React from "react";
 import classNames from "classnames";
 import axios from "axios";
 
+import removeSvg from "../../image/remove.svg";
+
 import Badge from "../Badge";
 
 import "./style.scss";
-
-import removeSvg from "../../image/remove.png";
 
 const List = ({
   items,
@@ -39,13 +39,13 @@ const List = ({
           <i>{item.icon ? item.icon : <Badge color={item.color.name} />}</i>
           <span>
             {item.name}
-            {item.tasks && `(${item.tasks.length})`}
+            {item.tasks && ` (${item.tasks.length})`}
           </span>
           {isRemovable && (
             <img
-              src={removeSvg}
-              alt="remove icon"
               className="list__remove-icon"
+              src={removeSvg}
+              alt="Remove icon"
               onClick={() => removeList(item)}
             />
           )}

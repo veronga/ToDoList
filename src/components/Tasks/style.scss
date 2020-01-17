@@ -1,7 +1,14 @@
 .tasks {
+  &:not(:last-of-type) {
+    margin-bottom: 40px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
   &__title {
     font-family: Montserrat;
-    font-style: normal;
     font-weight: bold;
     font-size: 32px;
     line-height: 39px;
@@ -11,7 +18,51 @@
 
     &:hover {
       img {
-        opacity: 0.6;
+        opacity: 0.2;
+      }
+    }
+
+    img {
+      opacity: 0;
+      cursor: pointer;
+      margin-left: 15px;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &__form {
+    margin-top: 20px;
+
+    &-block {
+      .button {
+        margin-right: 10px;
+        margin-top: 15px;
+      }
+    }
+
+    &-new {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      opacity: 0.4;
+      transition: opacity 0.15s ease-in-out;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      img {
+        width: 16px;
+        height: 16px;
+        margin-left: 4px;
+      }
+
+      span {
+        font-size: 16px;
+        margin-left: 19px;
       }
     }
   }
@@ -34,7 +85,42 @@
       align-items: center;
       margin-bottom: 15px;
 
-      input {
+      &:hover &-actions {
+        opacity: 1;
+      }
+
+      &-actions {
+        display: flex;
+        opacity: 0;
+        transition: opacity 0.15s ease-in-out;
+
+        div {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 32px;
+          height: 32px;
+          background-color: lighten(#f4f6f8, 2%);
+          border-radius: 6px;
+          margin-left: 5px;
+          cursor: pointer;
+
+          &:hover {
+            background-color: darken(#f4f6f8, 2%);
+            svg {
+              opacity: 0.9;
+            }
+          }
+
+          svg {
+            width: 11px;
+            height: 11px;
+            opacity: 0.4;
+          }
+        }
+      }
+
+      p {
         margin-left: 15px;
         border: 0;
         font-size: 16px;
@@ -43,90 +129,57 @@
     }
   }
 
-  img {
-    cursor: pointer;
-
-    &:hover {
-      opacity: 1;
+  .checkbox {
+    input {
+      display: none;
     }
-  }
 
-  &__form {
-    &-blok {
-      .button {
-        margin-right: 10px;
-        margin-top: 15px;
+    svg {
+      transition: opacity 0.15s ease-in-out;
+      path {
+        stroke: #f2f2f2;
       }
     }
 
-    &-new {
-      display: flex;
-      align-items: center;
-      margin-top: 10px;
-      cursor: pointer;
-      opacity: 0.4;
+    input:checked + label {
+      background-color: #4dd599;
+      border-color: #4dd599;
 
-      &:hover {
-        opacity: 0.7;
-      }
-
-      img {
-        width: 16px;
-        height: 16px;
-        margin-left: 4px;
-      }
-
-      span {
-        font-size: 16px;
-        margin-left: 19px;
-      }
-    }
-  }
-}
-
-.checkbox {
-  input {
-    display: none;
-  }
-
-  &:hover {
-    label {
-      background-color: #f2f2f2;
-      border-color: #f2f2f2;
       svg {
         opacity: 1;
         path {
-          stroke: #b3b3b3;
+          stroke: #fff;
         }
       }
     }
-  }
 
-  label {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #e8e8e8;
-    border-radius: 30px;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-
-    svg {
-      position: relative;
-      left: 1px;
-      opacity: 0;
+    &:hover {
+      label {
+        background-color: #f2f2f2;
+        border-color: #f2f2f2;
+        svg {
+          opacity: 1;
+          path {
+            stroke: #b2b2b2;
+          }
+        }
+      }
     }
-  }
 
-  input:checked + label {
-    background-color: #4dd599;
-    border-color: #4dd599;
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #e8e8e8;
+      border-radius: 30px;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      transition: background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out;
 
-    svg {
-      opacity: 1;
-      path {
-        stroke: #ffffff;
+      svg {
+        opacity: 0;
       }
     }
   }

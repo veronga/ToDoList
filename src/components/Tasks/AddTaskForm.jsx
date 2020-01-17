@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import plusSvg from "../../image/plas.png";
+import addSvg from "../../image/add.svg";
 
 const AddTaskForm = ({ list, onAddTask }) => {
   const [visibleForm, setFormVisible] = useState(false);
@@ -23,11 +23,10 @@ const AddTaskForm = ({ list, onAddTask }) => {
     axios
       .post("http://localhost:3001/tasks", obj)
       .then(({ data }) => {
-        console.log(data);
         onAddTask(list.id, data);
         toggleFormVisible();
       })
-      .catch(() => {
+      .catch(e => {
         alert("Ошибка при добавлении задачи!");
       })
       .finally(() => {
@@ -39,7 +38,7 @@ const AddTaskForm = ({ list, onAddTask }) => {
     <div className="tasks__form">
       {!visibleForm ? (
         <div onClick={toggleFormVisible} className="tasks__form-new">
-          <img src={plusSvg} alt="Add icon" />
+          <img src={addSvg} alt="Add icon" />
           <span>Новая задача</span>
         </div>
       ) : (

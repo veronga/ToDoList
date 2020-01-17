@@ -3,11 +3,29 @@
   width: 10px;
   height: 10px;
   border-radius: 30px;
-  position: relative;
-  left: 5px;
+
+  &--grey {
+    background-color: #c9d1d3;
+  }
+
+  &--lime {
+    background-color: #b6e6bd;
+  }
+
+  &--purple {
+    background-color: #c355f5;
+  }
+
+  &--black {
+    background-color: #08001a;
+  }
+
+  &--red {
+    background-color: #ff6464;
+  }
 
   &--green {
-    background-color: #428883;
+    background-color: #42b883;
   }
 
   &--blue {
@@ -16,20 +34,5 @@
 
   &--pink {
     background-color: #ffbbcc;
-  }
-  &--grey {
-    background-color: #c9d1d3;
-  }
-  &--lime {
-    background-color: #b6e6bd;
-  }
-  &--purple {
-    background-color: #c355f5;
-  }
-  &--black {
-    background-color: #110133;
-  }
-  &--red {
-    background-color: #ff6464;
   }
 }

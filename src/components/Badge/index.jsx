@@ -9,4 +9,5 @@ const Badge = ({ color, onClick, className }) => (
     className={classNames("badge", { [`badge--${color}`]: color }, className)}
   ></i>
 );
+
 export default Badge;

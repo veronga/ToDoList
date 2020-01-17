@@ -4,8 +4,7 @@ import axios from "axios";
 import List from "../List";
 import Badge from "../Badge";
 
-import plusSvg from "../../image/plas.png";
-import closeSvg from "../../image/close.png";
+import closeSvg from "../../image/close.svg";
 
 import "./style.scss";
 
@@ -32,7 +31,6 @@ const AddList = ({ colors, onAdd }) => {
       alert("Введите название списка");
       return;
     }
-
     setIsLoading(true);
     axios
       .post("http://localhost:3001/lists", {
@@ -40,10 +38,13 @@ const AddList = ({ colors, onAdd }) => {
         colorId: seletedColor
       })
       .then(({ data }) => {
-        const color = colors.filter(c => c.id === seletedColor)[0].name;
-        const listObj = { ...data, color: { name: color } };
+        const color = colors.filter(c => c.id === seletedColor)[0];
+        const listObj = { ...data, color, tasks: [] };
         onAdd(listObj);
         onClose();
+      })
+      .catch(() => {
+        alert("Ошибка при добавлении списка!");
       })
       .finally(() => {
         setIsLoading(false);
@@ -56,9 +57,32 @@ const AddList = ({ colors, onAdd }) => {
         onClick={() => setVisiblePopup(true)}
         items={[
           {
-            icon: <img src={plusSvg} alt="plus icon" />,
-            name: "Добавить список",
-            className: "list__add-button"
+            className: "list__add-button",
+            icon: (
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 1V15"
+                  stroke="black"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M1 8H15"
+                  stroke="black"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            ),
+            name: "Добавить список"
           }
         ]}
       />
@@ -67,9 +91,10 @@ const AddList = ({ colors, onAdd }) => {
           <img
             onClick={onClose}
             src={closeSvg}
-            alt="close button"
-            className="close-btn"
+            alt="Close button"
+            className="add-list__popup-close-btn"
           />
+
           <input
             value={inputValue}
             onChange={e => setInputValue(e.target.value)}
@@ -77,14 +102,17 @@ const AddList = ({ colors, onAdd }) => {
             type="text"
             placeholder="Название списка"
           />
-          {colors.map(color => (
-            <Badge
-              onClick={() => selectColor(color.id)}
-              color={color.name}
-              key={color.id}
-              className={seletedColor === color.id && "active"}
-            />
-          ))}
+
+          <div className="add-list__popup-colors">
+            {colors.map(color => (
+              <Badge
+                onClick={() => selectColor(color.id)}
+                key={color.id}
+                color={color.name}
+                className={seletedColor === color.id && "active"}
+              />
+            ))}
+          </div>
           <button onClick={addList} className="button">
             {isLoading ? "Добавление..." : "Добавить"}
           </button>
