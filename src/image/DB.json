@@ -24,6 +24,11 @@
       "id": 5,
       "name": "Личное",
       "colorId": 1
+    },
+    {
+      "name": "иии",
+      "colorId": 5,
+      "id": 6
     }
   ],
   "tasks": [
@@ -31,12 +36,12 @@
       "id": 1,
       "listId": 2,
       "text": "Изучить JavaScript",
-      "completed": false
+      "completed": true
     },
     {
       "id": 2,
       "listId": 2,
-      "text": "Изучить паттерны проектирования",
+      "text": "Изучить ",
       "completed": false
     },
     {
@@ -50,6 +55,24 @@
       "listId": 2,
       "text": "Redux (redux-observable, redux-saga)",
       "completed": false
+    },
+    {
+      "listId": 4,
+      "text": "Пиши, сокращай",
+      "completed": false,
+      "id": 5
+    },
+    {
+      "listId": 3,
+      "text": "Гарри Потер ",
+      "completed": false,
+      "id": 6
+    },
+    {
+      "listId": 1,
+      "text": "Утюг",
+      "completed": false,
+      "id": 7
     }
   ],
   "colors": [
