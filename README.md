@@ -1,9 +1,8 @@
-Stack:
+####  Large to do list app with adding and removing tasks and headers
+***
 
-1.ReactJS (useState, useReducer, useEffect)
-
-2.React Router
-
-3.Axios
-
-4.classnames
+#### Stack:
+ + ReactJS (useState, useReducer, useEffect)
+ + React Router
+ + Axios
+ + classnames
